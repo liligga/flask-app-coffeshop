@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Our Product | Lavazza Crema E Gusto</title>
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+  <div class="product">
+
+    <div class="product__wrapper">
+      <h3>Sorry, we cannot find this product</h3>
+    </div>
+
+  </div>
+  <h2 class="block__title">
+    Other products
+  </h2>
+  <div class="products__wrapper">
+    <div class="products__block">
+      <a class="products__item" href="#">
+        <img class="products__img" src={{ url_for('static', filename='img/product.png') }} alt="">
+        <h3 class="products__title">Lavazza coffee</h3>
+        <div class="products__footer">
+          <div class="products_price">$19.99
+            <del>$29.99</del>
+          </div>
+          <button type="button" class="products__favorite">
+            <img src={{ url_for('static', filename='img/favorite.svg') }} alt="">
+          </button>
+        </div>
+      </a>
+    </div>
+    <div class="products__block">
+      <a class="products__item" href="#">
+        <img class="products__img" src={{ url_for('static', filename='img/product2.png') }} alt="">
+        <h3 class="products__title">Lavazza coffee</h3>
+        <div class="products__footer">
+          <div class="products_price">$19.99
+            <del>$29.99</del>
+          </div>
+          <button type="button" class="products__favorite">
+            <img src={{ url_for('static', filename='img/favorite.svg') }} alt="">
+          </button>
+        </div>
+      </a>
+    </div>
+    <div class="products__block">
+      <a class="products__item" href="#">
+        <img class="products__img" src={{ url_for('static', filename='img/product2.png') }} alt="">
+        <h3 class="products__title">Lavazza coffee</h3>
+        <div class="products__footer">
+          <div class="products_price">$19.99
+            <del>$29.99</del>
+          </div>
+          <button type="button" class="products__favorite">
+            <img src={{ url_for('static', filename='img/favorite.svg') }} alt="">
+          </button>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}
+

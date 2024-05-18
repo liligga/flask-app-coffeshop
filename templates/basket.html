@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+<title>Забронировать</title>
+{% endblock %}
+
+
+{% block content %}
+<h1>Check out</h1>
+price: {{ price }}
+delivery: {{ delivery }}
+total price: {{ total_price }}
+<form method="post">
+  {% csrf_token %}
+  {{ form }}
+  <button>Check out</button>
+</form>
+{% endblock %}

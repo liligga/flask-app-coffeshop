@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href={{ url_for("static", filename="css/style.css" ) }}>
+  {% block title %}{% endblock %}
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__line">
+      <div class="container">
+        <div class="header__line-wrapper">
+          <div class="header__lng">
+            <a href="#">Ru</a>
+            <a href="#" class="active">En</a>
+          </div>
+          <a class="header__phone" href="#">+371000000</a>
+
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="header__wrapper">
+        <div class="header__block">
+          <nav class="nav">
+            <a class="nav__link active" href="#">Home</a>
+            <a class="nav__link" href="#">About</a>
+            <a class="nav__link" href="#">Menu</a>
+            <a class="nav__link" href="#">Reservation</a>
+          </nav>
+        </div>
+        <a href="#" class="logo"><img src={{ url_for('static', filename='img/logo.png') }} alt="logo"></a>
+        <div class="header__block right">
+          <div class="header__actions">
+            <a class="header__link" href="#"><img src={{ url_for('static', filename='img/profile.svg') }} alt="user"></a>
+            <a class="header__link" href="#"><img src={{ url_for('static', filename='img/favorite.svg') }} alt="like"></a>
+            <a class="header__link" href="#"><img src={{ url_for('static', filename='img/cart.svg') }} alt="cart">
+              <span class="header__link-event"></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+    {% block content %}{% endblock %}
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__wrapper">
+        <div class="footer__block">
+          <a href="#" class="footer__logo">
+            <img src={{ url_for('static', filename='img/footer-logo.png') }} alt="">
+          </a>
+        </div>
+        <div class="footer__block">
+          <nav class="nav nav-footer">
+            <a class="nav__link " href="#">Home</a>
+            <a class="nav__link" href="#">About</a>
+            <a class="nav__link" href="#">Menu</a>
+            <a class="nav__link" href="#">Reservation</a>
+          </nav>
+        </div>
+        <div class="footer__block">
+          <nav class="nav nav-footer">
+            <a class="nav__link" href="#">Contacts</a>
+            <a class="nav__link" href="#">Privacy policy</a>
+          </nav>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+</body>
+
+</html>

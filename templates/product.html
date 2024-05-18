@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Our Product | Lavazza Crema E Gusto</title>
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+  <div class="product">
+    <div class="block__title">
+      {{ product.name }}
+    </div>
+
+    <div class="product__wrapper">
+      <div class="product__image">
+        <div class="product__item">
+          <img class="product__picture" src={{ url_for('static', filename=product.image ) }} alt="">
+        </div>
+        <img src="" alt="">
+      </div>
+      <div class="product__info">
+        <div class="product__item">
+          <div class="product__price">
+            ${{ product.price }}
+            <del>${{ product.old_price }}</del>
+          </div>
+          <form action="" class="product__form">
+            <div class="radio__wrapper">
+              <div class="radio">
+                <input type="radio" class="radio__input" id="radio_1" name="product_size">
+                <label for="radio_1" class="radio__label">
+                  L
+                </label>
+              </div>
+              <div class="radio">
+                <input type="radio" class="radio__input" id="radio_2" name="product_size">
+                <label for="radio_1" class="radio__label">
+                  XL
+                </label>
+              </div>
+              <div class="radio">
+                <input type="radio" class="radio__input" id="radio_3" name="product_size">
+                <label for="radio_1" class="radio__label">
+                  XXL
+                </label>
+              </div>
+            </div>
+            <button class="btn btn-main btn-full" type="submit">Add to cart</button>
+
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="product__footer">
+      <div class="block__title">
+        Description
+      </div>
+      <div class="product__item">
+        <ul>
+          {% for item in product.description.split('\n\n') %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+  </div>
+  <h2 class="block__title">
+    Other products
+  </h2>
+  <div class="products__wrapper">
+    <div class="products__block">
+      <a class="products__item" href="#">
+        <img class="products__img" src={{ url_for('static', filename='img/product.png') }} alt="">
+        <h3 class="products__title">Lavazza coffee</h3>
+        <div class="products__footer">
+          <div class="products_price">$19.99
+            <del>$29.99</del>
+          </div>
+          <button type="button" class="products__favorite">
+            <img src={{ url_for('static', filename='img/favorite.svg') }} alt="">
+          </button>
+        </div>
+      </a>
+    </div>
+    <div class="products__block">
+      <a class="products__item" href="#">
+        <img class="products__img" src={{ url_for('static', filename='img/product2.png') }} alt="">
+        <h3 class="products__title">Lavazza coffee</h3>
+        <div class="products__footer">
+          <div class="products_price">$19.99
+            <del>$29.99</del>
+          </div>
+          <button type="button" class="products__favorite">
+            <img src={{ url_for('static', filename='img/favorite.svg') }} alt="">
+          </button>
+        </div>
+      </a>
+    </div>
+    <div class="products__block">
+      <a class="products__item" href="#">
+        <img class="products__img" src={{ url_for('static', filename='img/product2.png') }} alt="">
+        <h3 class="products__title">Lavazza coffee</h3>
+        <div class="products__footer">
+          <div class="products_price">$19.99
+            <del>$29.99</del>
+          </div>
+          <button type="button" class="products__favorite">
+            <img src={{ url_for('static', filename='img/favorite.svg') }} alt="">
+          </button>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}
