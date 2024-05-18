@@ -34,6 +34,7 @@ def init_db(app: Flask):
                 total_price FLOAT
             )
         """)
+        db.execute("DROP TABLE IF EXISTS products")
         db.execute("""
             CREATE TABLE IF NOT EXISTS products(
                 id INTEGER PRIMARY KEY AUTOINCREMENT,

@@ -367,6 +367,9 @@ a {
     padding-top: 80px;
     border-top: 2px solid #14141d;
     padding-bottom: 60px;
+    background-color: #020204;
+    position: relative;
+    z-index: 2;
 }
 .footer__wrapper {
     display: flex;
@@ -474,3 +477,107 @@ a {
 
 /*.Product*/
 
+
+
+/*.rectangle {
+    width: 300px;
+    height: 150px;
+    border: 2px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+.name-surname {
+    font-size: 20px;
+    font-weight: bold;
+}
+*/
+
+.checkout__total{
+    width: 1200px;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #14141D;
+    padding-top: 45px;
+    padding-bottom: 45px;
+    box-sizing: border-box; 
+    border-radius: 50px;
+}
+
+.total__container {
+  width: clamp(400px, 70%, 855px);
+}
+
+.checkout__total-row{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+
+}
+.checkout__total-row.title{
+    font-size: 15px;
+}
+
+.checkout__total-row.count{
+    font-size: 15px;
+}
+.checkout__total-row.total{
+    margin-bottom: 40px;
+    margin-top: 30px;
+}
+.checkout__total-row.total .title{
+    font-size: 16px;
+    font-weight: 700;
+    
+}
+.checkout__total-row.total .count{
+    font-size: 16px;
+    font-weight: 700;
+    
+}
+
+.checkout-btn-name{
+    min-width: 200px;
+    height: 50px;
+    padding: 0 20px;
+    /* display: inline-flex; */
+    /* justify-content: flex-start; */
+    /* align-items: center; */
+    font-size: 15px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 10px;
+    width: 855px;
+    border: 1px solid #fff;
+    color: #fff;
+    background-color: transparent;
+    margin-bottom: 20px;
+}
+.checkout-btn-name:focus-visible{
+    outline: none;
+}
+
+.checkout-btn{
+    min-width: 200px;
+    height: 50px;
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 15px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 10px;
+    background-color: #C7A17A;
+    width: 855px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.btn__text{
+    margin-left: 20px;
+}

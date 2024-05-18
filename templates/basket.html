@@ -1,19 +1,88 @@
-{% extends "base.html" %}
-
+{% extends 'base.html' %}
 
 {% block title %}
-<title>Забронировать</title>
+  <title>Checkout</title>
 {% endblock %}
 
-
 {% block content %}
-<h1>Check out</h1>
-price: {{ price }}
-delivery: {{ delivery }}
-total price: {{ total_price }}
-<form method="post">
-  {% csrf_token %}
-  {{ form }}
-  <button>Check out</button>
-</form>
+    <form action="/basket" method="post">
+      {{ form.csrf_token }}
+      <div class="container">
+          <div class="checkout__total">
+              <div class="total__container">
+                <div class="checkout__total-row total">
+                    <div class="title">Total price:</div>
+                    <div class="count">$29.99</div>
+                </div>
+                
+                <input type="text" name="full_name" value="" placeholder="Name, Surname" class="checkout-btn-name">
+            
+                <input type="text" name="email" value="" placeholder="E-mail" class="checkout-btn-name">
+                <!-- <a href="" class="checkout-btn-name"> -->
+                <!--     <div class="btn__text">Name, Surname</div> -->
+                <!-- </a> -->
+                <!-- <a href="" class="checkout-btn-name"> -->
+                <!--     <div class="btn__text">E-mail</div> -->
+                <!-- </a> -->
+                <input type="hidden" name="total_price" value="">
+                <!-- <a href="" class="checkout-btn"> -->
+                <!--     <div class="btn__text">Checkout</div> -->
+                <!-- </a> -->
+              
+                <button type="submit" class="checkout-btn">
+                    <div class="btn__text">Checkout</div>
+                </button>
+              </div>
+          </div>
+      </div>
+    </form>
+  <script>
+    const basket = JSON.parse(localStorage.getItem('basket')) || []
+    const form = document.querySelector('form')
+    if (basket.length > 0) {
+      const html = document.querySelector('.total__container')
+      const total_price_field = document.querySelector('input[name="total_price"]')
+      const ids = JSON.stringify(basket).replace(/[\[\]']+/g, '').replace(/"/g, "")
+      let url = {{ url_for("products_for_basket")|tojson }} 
+      url = url + "?ids=" + ids
+      fetch(url)
+        .then(response => response.json())
+        .then(products => {
+          if (products.length === 0) {
+            <!-- alert('Корзина пуста') -->
+            return;
+          }
+          let totalRow = ''
+          let totalPrice = 0
+          products.forEach(product => {
+            console.log(product)
+            totalPrice += product.price + 10
+            totalRow += `
+            <div class="checkout__total-row">
+                <div class="title">Price:</div>
+                <div class="count">$${product.price}</div>
+            </div>
+            <div class="checkout__total-row">
+                <div class="title">Delivery:</div>
+                <div class="count">$10.00</div>
+              </div>
+              `
+          })
+          const ht = document.createElement('div')
+          // ht.classList.add('total__container')
+          ht.innerHTML = totalRow
+          html.prepend(ht)
+          const total = document.querySelector('.total > .count')
+          total.innerHTML = `$${totalPrice}`
+          total_price_field.value = totalPrice
+        })
+    }
+    // form.addEventListener('submit', event => {
+    //   event.preventDefault()
+    //   alert('Заказ оформлен')
+    //   // localStorage.removeItem('basket')
+    //   form.submit()
+    // })
+  </script>
+
 {% endblock %}
